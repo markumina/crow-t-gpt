@@ -1,7 +1,6 @@
 # CROW T. ROBOT 2.0
 
-No Python. One Go file (standard library only — nothing to `pip install`, ever),
-one HTML file for the face, and three local engines that never rot:
+One Go file, one HTML file for the face, and three local engines:
 whisper.cpp (ears), piper + sox (voice), ollama (brain).
 
 Folder layout when you're done:
@@ -81,12 +80,10 @@ command to fix it. When it's happy, open **http://localhost:8765**, hit
 - **Face**: everything visual is in `index.html` — edit and refresh the
   browser. No rebuild.
 
-## Why this doesn't rot
+## Notes
 
-- Go's standard library compiles the same way in ten years; `go build` here
-  downloads nothing.
 - whisper.cpp, piper, and the models are plain files sitting in this folder.
 - The frontend is one dependency-free HTML file running in whatever browser
   exists.
-- The only moving part is ollama, which you already treat as an appliance.
-# crow-t-gpt
+- The only moving part is ollama
+
