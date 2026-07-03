@@ -591,6 +591,7 @@ func main() {
 	http.HandleFunc("/api/transcribe", handleTranscribe)
 	http.HandleFunc("/api/reply", handleReply)
 	http.HandleFunc("/api/reset", handleReset)
+	http.Handle("/face/", http.FileServer(http.Dir(".")))
 
 	if err := http.ListenAndServe("127.0.0.1:"+port, nil); err != nil {
 		fmt.Println("server failed:", err)
