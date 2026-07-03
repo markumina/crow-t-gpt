@@ -3,7 +3,7 @@
 One Go file, one HTML file for the face, and three local engines:
 whisper.cpp (ears), piper + sox (voice), ollama (brain).
 
-Folder layout when you're done:
+Folder layout:
 
 ```
 crow/
@@ -52,9 +52,9 @@ wget -P voices https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US
 wget -P voices https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/ryan/medium/en_US-ryan-medium.onnx.json
 ```
 
-Once these are on disk they're vendored — no network needed ever again.
+Once these are on disk they're vendored - no network, for now.
 
-## 4. Brain — ollama (you already have this)
+## 4. Brain — ollama
 
 ```bash
 ollama pull qwen2.5:7b   # skip if already pulled
@@ -67,7 +67,7 @@ go build -o crow crow.go
 ./crow
 ```
 
-It runs its own pre-flight check and tells you exactly what's missing and the
+It runs its own pre-flight check and tells you what's missing and the
 command to fix it. When it's happy, open **http://localhost:8765**, hit
 **POWER**, allow the mic, and talk.
 
@@ -75,15 +75,15 @@ command to fix it. When it's happy, open **http://localhost:8765**, hit
 
 - **Voice character**: `soxPitch` and `soxTempo` at the top of `crow.go`
   (380 cents up, 1.05× speed by default). Rebuild after editing.
-- **Personality**: edit `personality.txt`, restart `./crow`. No rebuild.
+- **Personality**: edit `personality.txt`, restart `./crow`. No rebuild needed.
 - **Mic pickiness**: the MIC SENS slider in the UI, live.
 - **Face**: everything visual is in `index.html` — edit and refresh the
-  browser. No rebuild.
+  browser. No rebuild needed.
 
 ## Notes
 
 - whisper.cpp, piper, and the models are plain files sitting in this folder.
-- The frontend is one dependency-free HTML file running in whatever browser
+- The frontend is one dependency-free HTML file running in browser.
   exists.
 - The only moving part is ollama
 
