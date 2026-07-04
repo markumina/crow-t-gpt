@@ -44,7 +44,7 @@
   #crowWrap{
     position:absolute; left:50%; top:45%;
     transform:translate(-50%,-50%);
-    width:min(56vmin,520px);
+    width:min(62vmin,580px);
   }
   #crowWrap svg{width:100%; height:auto; display:block;
     filter:drop-shadow(0 18px 40px rgba(0,0,0,.75));}
@@ -120,10 +120,8 @@
   <div id="wall"></div>
 
   <div id="crowWrap">
-    <!-- CROW, from the reference photo. Swept-back lacrosse-cage beak (the whole
-         silhouette), single black eye-oval holding two ping-pong balls with
-         diamond pupils and worried brows, gold face scoop, gooseneck, football
-         body, bowl base. #beak flaps from speech amplitude; eyes stay put. -->
+    <!-- Comic Crow: gold lacrosse-cage crown, black eye visor with drifting
+         yellow eyes, and a hinged snout/jaw that still follows speech amplitude. -->
     <svg viewBox="0 0 420 540" xmlns="http://www.w3.org/2000/svg" aria-label="Crow T. Robot">
       <defs>
         <linearGradient id="gold" x1="0" y1="0" x2="0" y2="1">
@@ -140,6 +138,15 @@
           <stop offset=".7" stop-color="#f2ead0"/>
           <stop offset="1" stop-color="#c9bf9a"/>
         </radialGradient>
+        <radialGradient id="eyeGlow" cx=".42" cy=".35" r=".85">
+          <stop offset="0" stop-color="#fff8a8"/>
+          <stop offset=".72" stop-color="#f5e45c"/>
+          <stop offset="1" stop-color="#c7a824"/>
+        </radialGradient>
+        <linearGradient id="visorBlack" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#19120b"/>
+          <stop offset="1" stop-color="#030306"/>
+        </linearGradient>
         <linearGradient id="graphite" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0" stop-color="#33373f"/>
           <stop offset="1" stop-color="#15171c"/>
@@ -148,8 +155,11 @@
           <path d="M0 0H15M0 7.5H15" stroke="#a5811a" stroke-width="1.5" opacity=".85"/>
           <path d="M0 0V15M7.5 0V15" stroke="#a5811a" stroke-width="1.5" opacity=".85"/>
         </pattern>
-        <clipPath id="clipL"><circle cx="184" cy="208" r="25"/></clipPath>
-        <clipPath id="clipR"><circle cx="236" cy="208" r="25"/></clipPath>
+        <pattern id="hatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(72)">
+          <path d="M0 0H6" stroke="#2b1d08" stroke-width="1.1" opacity=".45"/>
+        </pattern>
+        <clipPath id="clipL"><circle cx="180" cy="211" r="31"/></clipPath>
+        <clipPath id="clipR"><circle cx="242" cy="211" r="31"/></clipPath>
       </defs>
 
       <g id="crow">
@@ -191,66 +201,115 @@
         <!-- HEAD: bobs and tilts as a unit -->
         <g id="head">
 
-          <!-- FACE: smooth gold scoop -->
-          <path id="face" d="M210 150
-                   C 252 150, 286 178, 288 214
-                   C 289 254, 268 298, 228 312
-                   C 219 316, 201 316, 192 312
-                   C 152 298, 131 254, 132 214
-                   C 134 178, 168 150, 210 150 Z"
-                fill="url(#gold)" stroke="#5c450a" stroke-width="3"/>
-          <ellipse cx="174" cy="188" rx="30" ry="17" transform="rotate(-24 174 188)" fill="#fff3c4" opacity=".32"/>
-          <path d="M133 236 C 130 190, 158 158, 200 152" fill="none" stroke="#9ec4ff" stroke-width="2.5" opacity=".28"/>
-
-          <!-- MOUTH: dark cavity + hinged lower jaw that drops with the voice -->
-          <path id="mouthCavity" d="M150 262 C 178 276, 242 276, 270 262 L 270 292 C 242 306, 178 306, 150 292 Z"
-                fill="#140b06"/>
-          <g id="jaw">
-            <path d="M148 268 C 178 288, 242 288, 272 268
-                     C 280 286, 274 306, 210 312
-                     C 146 306, 140 286, 148 268 Z"
-                  fill="url(#gold)" stroke="#5c450a" stroke-width="3"/>
-            <path d="M158 280 C 186 296, 234 296, 262 280" fill="none" stroke="#6b510c" stroke-width="2.5" opacity=".7"/>
-            <ellipse cx="210" cy="300" rx="16" ry="6" fill="#c14b3a" opacity=".55"/>
+          <!-- Lacrosse-mask crown from the comic silhouette. It rides with the head
+               but does not open with the mouth. -->
+          <g id="crownCage" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M126 174 C105 130, 88 84, 76 42" stroke="#0a0704" stroke-width="10" opacity=".45"/>
+            <path d="M126 174 C105 130, 88 84, 76 42" stroke="url(#goldDeep)" stroke-width="6"/>
+            <path d="M149 168 C127 120, 111 76, 98 36" stroke="#0a0704" stroke-width="9" opacity=".45"/>
+            <path d="M149 168 C127 120, 111 76, 98 36" stroke="url(#gold)" stroke-width="5"/>
+            <path d="M274 174 C251 122, 229 82, 200 44" stroke="#0a0704" stroke-width="10" opacity=".45"/>
+            <path d="M274 174 C251 122, 229 82, 200 44" stroke="url(#goldDeep)" stroke-width="6"/>
+            <path d="M295 178 C271 124, 246 76, 214 30" stroke="#0a0704" stroke-width="10" opacity=".45"/>
+            <path d="M295 178 C271 124, 246 76, 214 30" stroke="url(#gold)" stroke-width="6"/>
+            <path d="M82 55 C114 107, 175 149, 284 166" stroke="#0a0704" stroke-width="8" opacity=".45"/>
+            <path d="M82 55 C114 107, 175 149, 284 166" stroke="url(#gold)" stroke-width="4.5"/>
+            <path d="M96 94 C142 132, 204 156, 292 176" stroke="#0a0704" stroke-width="7" opacity=".4"/>
+            <path d="M96 94 C142 132, 204 156, 292 176" stroke="url(#goldDeep)" stroke-width="4"/>
+            <path d="M104 142 C146 156, 200 171, 286 186" stroke="#0a0704" stroke-width="7" opacity=".4"/>
+            <path d="M104 142 C146 156, 200 171, 286 186" stroke="url(#gold)" stroke-width="4"/>
+            <path d="M126 172 C154 128, 174 88, 200 44" stroke="url(#goldDeep)" stroke-width="3.5"/>
+            <path d="M154 169 C172 126, 188 86, 214 30" stroke="url(#goldDeep)" stroke-width="3.2"/>
+            <circle cx="77" cy="43" r="9" fill="url(#gold)" stroke="#4f3808" stroke-width="3"/>
+            <circle cx="214" cy="31" r="9" fill="url(#gold)" stroke="#4f3808" stroke-width="3"/>
           </g>
 
-          <!-- BEAK: swept-back lacrosse cage. Flaps about the hinge. -->
+          <!-- FACE: gold helmet rim with a black visor like the poster art. -->
+          <path id="face" d="M119 215
+                   C 121 173, 158 145, 211 145
+                   C 265 145, 300 176, 302 218
+                   C 304 258, 277 293, 230 305
+                   C 215 309, 196 309, 181 305
+                   C 140 294, 117 258, 119 215 Z"
+                fill="url(#gold)" stroke="#5c450a" stroke-width="3.5"/>
+          <path d="M138 209
+                   C 141 181, 168 164, 211 164
+                   C 255 164, 283 183, 285 211
+                   C 287 238, 262 251, 211 251
+                   C 160 251, 135 237, 138 209 Z"
+                fill="url(#visorBlack)" stroke="#110b05" stroke-width="3"/>
+          <path d="M127 211 C 134 176, 165 151, 211 149 C 252 148, 284 169, 296 202"
+                fill="none" stroke="#fff1a3" stroke-width="4" opacity=".32" stroke-linecap="round"/>
+
+          <!-- MOUTH: black split between the two bowling-pin halves. -->
+          <path id="mouthCavity" d="M220 267
+                   C 255 239, 326 236, 382 275
+                   C 337 312, 259 322, 220 292
+                   C 214 285, 214 275, 220 267 Z"
+                fill="#050506"/>
+
+          <!-- Upper bowling-pin half. JS rotates this around the hinge as Crow talks. -->
           <g id="beak">
-            <path d="M236 168 C 210 122, 176 78, 138 46 C 120 30, 94 38, 90 62
-                     C 88 84, 108 98, 130 110 C 162 130, 184 150, 198 172 Z"
-                  fill="#0d0f16" opacity=".4"/>
-            <path d="M236 168 C 210 122, 176 78, 138 46 C 120 30, 94 38, 90 62
-                     C 88 84, 108 98, 130 110 C 162 130, 184 150, 198 172 Z"
-                  fill="url(#cage)" stroke="url(#goldDeep)" stroke-width="4.5" stroke-linejoin="round"/>
-            <path d="M232 166 C 206 122, 174 80, 138 50" fill="none" stroke="url(#gold)" stroke-width="3.5" opacity=".9" stroke-linecap="round"/>
-            <path d="M210 172 C 186 130, 152 96, 118 70" fill="none" stroke="url(#gold)" stroke-width="3" opacity=".8" stroke-linecap="round"/>
-            <path d="M96 60 C 100 44, 116 38, 130 44" fill="none" stroke="url(#gold)" stroke-width="3.5" opacity=".9" stroke-linecap="round"/>
+            <path d="M220 244
+                     C 242 224, 289 216, 335 226
+                     C 372 234, 401 252, 407 275
+                     C 394 290, 363 295, 329 291
+                     C 282 286, 239 273, 220 257
+                     C 216 253, 216 248, 220 244 Z"
+                  fill="url(#gold)" stroke="#5c450a" stroke-width="4" stroke-linejoin="round"/>
+            <ellipse cx="326" cy="252" rx="72" ry="22" transform="rotate(11 326 252)"
+                     fill="#fff0a7" opacity=".22"/>
+            <path d="M232 247 C 269 228, 354 232, 396 270" fill="none"
+                  stroke="#fff4b1" stroke-width="3" opacity=".32" stroke-linecap="round"/>
+            <path d="M361 238 C 378 246, 390 257, 398 272" fill="none"
+                  stroke="#5d4308" stroke-width="2.2" opacity=".48" stroke-linecap="round"/>
+            <path d="M365 246 C 380 253, 389 263, 395 275" fill="none"
+                  stroke="#5d4308" stroke-width="1.9" opacity=".38" stroke-linecap="round"/>
+            <path d="M390 258 C 397 263, 402 270, 405 277" fill="url(#hatch)" opacity=".45"/>
           </g>
 
-          <!-- EYES: one black oval, two ping-pong balls, diamond pupils, brows -->
-          <g id="eyes">
-            <rect x="145" y="178" width="130" height="60" rx="30" fill="#0a0c11" stroke="#5c450a" stroke-width="2"/>
+          <g id="jaw">
+            <path d="M217 289
+                     C 253 318, 326 317, 382 281
+                     C 374 306, 348 328, 310 339
+                     C 268 351, 225 335, 213 302
+                     C 211 296, 212 292, 217 289 Z"
+                  fill="url(#goldDeep)" stroke="#5c450a" stroke-width="3.5" stroke-linejoin="round"/>
+            <ellipse cx="307" cy="309" rx="63" ry="20" transform="rotate(-6 307 309)"
+                     fill="#f2ca4a" opacity=".18"/>
+            <path d="M229 298 C 267 323, 334 316, 374 287" fill="none"
+                  stroke="#f2ca4a" stroke-width="3" opacity=".42" stroke-linecap="round"/>
+            <path d="M339 301 C 357 294, 370 286, 381 278" fill="none"
+                  stroke="#2b1d08" stroke-width="2" opacity=".48" stroke-linecap="round"/>
+          </g>
 
-            <circle cx="184" cy="208" r="25" fill="url(#ball)"/>
-            <circle cx="236" cy="208" r="25" fill="url(#ball)"/>
+          <!-- EYES: black visor, big yellow balls, drifting diamond pupils, brows. -->
+          <g id="eyes">
+            <path d="M138 209 C 141 181, 168 164, 211 164 C 255 164, 283 183, 285 211 C 287 238, 262 251, 211 251 C 160 251, 135 237, 138 209 Z"
+                  fill="none" stroke="#5c450a" stroke-width="2.5"/>
+
+            <circle cx="180" cy="211" r="31" fill="url(#eyeGlow)" stroke="#2b1d08" stroke-width="2"/>
+            <circle cx="242" cy="211" r="31" fill="url(#eyeGlow)" stroke="#2b1d08" stroke-width="2"/>
 
             <g id="pupilL">
-              <rect x="175" y="199" width="18" height="18" rx="2" transform="rotate(45 184 208)" fill="#141009"/>
-              <circle cx="177" cy="201" r="3.4" fill="#fffdf2" opacity=".95"/>
+              <rect x="169" y="200" width="22" height="22" rx="2" transform="rotate(45 180 211)" fill="#070605"/>
+              <circle cx="172" cy="203" r="3.8" fill="#fffdf2" opacity=".96"/>
             </g>
             <g id="pupilR">
-              <rect x="227" y="199" width="18" height="18" rx="2" transform="rotate(45 236 208)" fill="#141009"/>
-              <circle cx="229" cy="201" r="3.4" fill="#fffdf2" opacity=".95"/>
+              <rect x="231" y="200" width="22" height="22" rx="2" transform="rotate(45 242 211)" fill="#070605"/>
+              <circle cx="234" cy="203" r="3.8" fill="#fffdf2" opacity=".96"/>
             </g>
 
-            <g clip-path="url(#clipL)"><rect id="lidL" x="159" y="183" width="50" height="0" fill="url(#gold)"/></g>
-            <g clip-path="url(#clipR)"><rect id="lidR" x="211" y="183" width="50" height="0" fill="url(#gold)"/></g>
+            <g clip-path="url(#clipL)"><rect id="lidL" x="148" y="178" width="64" height="0" fill="url(#gold)"/></g>
+            <g clip-path="url(#clipR)"><rect id="lidR" x="210" y="178" width="64" height="0" fill="url(#gold)"/></g>
 
             <g id="browL">
-              <path d="M156 178 L204 186" fill="none" stroke="url(#goldDeep)" stroke-width="7" stroke-linecap="round"/>
+              <path d="M151 184 C 166 178, 186 178, 204 184" fill="none" stroke="#090704" stroke-width="8" stroke-linecap="round"/>
+              <path d="M151 183 C 166 177, 186 177, 204 183" fill="none" stroke="url(#goldDeep)" stroke-width="5" stroke-linecap="round"/>
             </g>
             <g id="browR">
-              <path d="M216 186 L264 178" fill="none" stroke="url(#goldDeep)" stroke-width="7" stroke-linecap="round"/>
+              <path d="M219 184 C 237 178, 258 178, 274 184" fill="none" stroke="#090704" stroke-width="8" stroke-linecap="round"/>
+              <path d="M219 183 C 237 177, 258 177, 274 183" fill="none" stroke="url(#goldDeep)" stroke-width="5" stroke-linecap="round"/>
             </g>
           </g>
 
@@ -347,8 +406,8 @@ const browL = $("browL"), browR = $("browR");
 const pupilL = $("pupilL"), pupilR = $("pupilR");
 const lidL = $("lidL"), lidR = $("lidR");
 
-const BEAK_PIVOT = { x: 205, y: 171 };
-const BEAK_REST = 14; // degrees the beak tips down when silent (mouth closed)
+const BEAK_PIVOT = { x: 220, y: 267 };
+const BEAK_REST = 0; // upper bowling-pin half rests level; voice animation lifts it open
 
 let openTarget = 0; // 0 closed .. 1 open
 let openNow = 0;
