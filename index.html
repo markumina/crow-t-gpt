@@ -242,44 +242,52 @@
                 fill="none" stroke="#fff1a3" stroke-width="4" opacity=".32" stroke-linecap="round"/>
 
           <!-- MOUTH: black split between the two bowling-pin halves. -->
-          <path id="mouthCavity" d="M220 267
-                   C 255 239, 326 236, 382 275
-                   C 337 312, 259 322, 220 292
-                   C 214 285, 214 275, 220 267 Z"
+          <path id="mouthCavity" d="M220 266
+                   L408 280
+                   L407 288
+                   L220 274 Z"
                 fill="#050506"/>
 
           <!-- Upper bowling-pin half. JS rotates this around the hinge as Crow talks. -->
           <g id="beak">
-            <path d="M220 244
-                     C 242 224, 289 216, 335 226
-                     C 372 234, 401 252, 407 275
-                     C 394 290, 363 295, 329 291
-                     C 282 286, 239 273, 220 257
-                     C 216 253, 216 248, 220 244 Z"
+            <path d="M220 242
+                     C 250 214, 307 207, 357 224
+                     C 390 235, 411 257, 414 274
+                     C 413 279, 411 281, 408 280
+                     L220 266
+                     C 214 257, 214 249, 220 242 Z"
                   fill="url(#gold)" stroke="#5c450a" stroke-width="4" stroke-linejoin="round"/>
-            <ellipse cx="326" cy="252" rx="72" ry="22" transform="rotate(11 326 252)"
-                     fill="#fff0a7" opacity=".22"/>
-            <path d="M232 247 C 269 228, 354 232, 396 270" fill="none"
+            <path d="M374 234
+                     C 397 244, 411 261, 414 274
+                     C 413 279, 411 281, 408 280
+                     C 400 260, 389 244, 374 234 Z"
+                  fill="url(#hatch)" opacity=".28"/>
+            <ellipse cx="333" cy="248" rx="74" ry="22" transform="rotate(9 333 248)"
+                     fill="#fff0a7" opacity=".2"/>
+            <path d="M232 245 C 276 220, 365 228, 405 270" fill="none"
                   stroke="#fff4b1" stroke-width="3" opacity=".32" stroke-linecap="round"/>
-            <path d="M361 238 C 378 246, 390 257, 398 272" fill="none"
+            <path d="M367 235 C 388 245, 403 260, 410 276" fill="none"
                   stroke="#5d4308" stroke-width="2.2" opacity=".48" stroke-linecap="round"/>
-            <path d="M365 246 C 380 253, 389 263, 395 275" fill="none"
-                  stroke="#5d4308" stroke-width="1.9" opacity=".38" stroke-linecap="round"/>
-            <path d="M390 258 C 397 263, 402 270, 405 277" fill="url(#hatch)" opacity=".45"/>
+            <path d="M221 266 L408 280" fill="none"
+                  stroke="#2b1d08" stroke-width="3.2" opacity=".72" stroke-linecap="round"/>
+            <path d="M401 252 C 411 260, 416 273, 413 281" fill="none"
+                  stroke="#5d4308" stroke-width="2" opacity=".45" stroke-linecap="round"/>
           </g>
 
           <g id="jaw">
-            <path d="M217 289
-                     C 253 318, 326 317, 382 281
-                     C 374 306, 348 328, 310 339
-                     C 268 351, 225 335, 213 302
-                     C 211 296, 212 292, 217 289 Z"
+            <path d="M220 274
+                     L407 288
+                     C 400 307, 369 329, 326 339
+                     C 277 351, 228 338, 214 306
+                     C 211 294, 214 282, 220 274 Z"
                   fill="url(#goldDeep)" stroke="#5c450a" stroke-width="3.5" stroke-linejoin="round"/>
-            <ellipse cx="307" cy="309" rx="63" ry="20" transform="rotate(-6 307 309)"
+            <ellipse cx="318" cy="313" rx="67" ry="20" transform="rotate(-5 318 313)"
                      fill="#f2ca4a" opacity=".18"/>
-            <path d="M229 298 C 267 323, 334 316, 374 287" fill="none"
+            <path d="M230 300 C 276 324, 350 318, 392 291" fill="none"
                   stroke="#f2ca4a" stroke-width="3" opacity=".42" stroke-linecap="round"/>
-            <path d="M339 301 C 357 294, 370 286, 381 278" fill="none"
+            <path d="M220 274 L407 288" fill="none"
+                  stroke="#090704" stroke-width="2.4" opacity=".72" stroke-linecap="round"/>
+            <path d="M343 304 C 368 300, 392 291, 407 288" fill="none"
                   stroke="#2b1d08" stroke-width="2" opacity=".48" stroke-linecap="round"/>
           </g>
 
